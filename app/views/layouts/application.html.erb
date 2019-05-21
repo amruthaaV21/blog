@@ -8,14 +8,21 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
+   <body>
+    <div class="jumbotron text-right">
     <%= render 'layouts/header' %>
-  	<% flash.each do |name, msg| %>
-    <br>
-    <%= msg %>
+</div>
     
-    <% end %>
-
-    <%= yield %>
+    <div class="container">
+      <div class="row">
+        <div class="span2 offset2 well">
+          <%= yield %>
+        </div>
+      </div>
+    </div>
   </body>
+
 </html>
+
+
+ 

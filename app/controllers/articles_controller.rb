@@ -36,6 +36,12 @@ class ArticlesController < ApplicationController
 
 	def show
 		@article = Article.find(params[:id])
+    @commentable = find_commentable
+    @comments = @commentable.comments.arrange(:order => :created_at)
+    @comment = Comment.new
+    
+
+    
 	end
 
 	def destroy
@@ -54,16 +60,27 @@ class ArticlesController < ApplicationController
     	@articles = Article.all
     end
 
+    def get_random
+      @articles = Article.order("RANDOM()").limit(10)
+      #@articles = Article.order("RAND()").first(6)
+    end 
 
+    def get_recent
+      @articles = Article.find(:all, :order => "id desc", :limit => 5)
 
-
+    end
+   
 	private
   		def article_params
-   		params.require(:article).permit(:title, :description)
+   		params.require(:article).permit(:title, :description, :image)
   		end
 
       def correct_user?(article)
        current_user.id == article.user_id
+      end
+
+      def find_commentable
+       return params[:controller].singularize.classify.constantize.find(params[:id])
       end
 
 

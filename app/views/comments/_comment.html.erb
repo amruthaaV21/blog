@@ -1,0 +1,26 @@
+
+
+<a class="pull-left" href="#">
+  <img class="media-object" src="/assets/images/anonuser.jpg" style="width: 64px; height: 64px;"/>
+</a>
+<div class="media-body">
+  <h4 class="media-heading"><%= current_user.username %></h4>
+  <i>
+    <%= comment.created_at.strftime('%b %d, %Y at %H:%M')  %>
+  </i>
+  <p>
+    <%= simple_format comment.content %>
+  </p>
+
+
+
+  <div class="actions">
+    <%= link_to "Reply", new_article_comment_path([@commentable, Comment.new], :parent_id => comment), remote: true %>
+  </div>
+  <%= nested_comments comment.children %>
+</div>
+
+
+
+    
+

@@ -4,7 +4,14 @@ git_source(:github) do |repo_name|
   repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
   "https://github.com/#{repo_name}.git"
 end
+gem 'carrierwave', '~> 0.10.0'
+gem 'mini_magick', '~> 4.3'
 
+gem "omniauth-google-oauth2", "~> 0.2.1"
+gem 'ancestry'
+gem 'bootstrap-sass', '~> 3.3.7'
+gem 'jquery-rails'
+gem 'faker',          '1.7.3'
 gem 'bcrypt', '~> 3.1.7'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.6', '>= 5.1.6.1'

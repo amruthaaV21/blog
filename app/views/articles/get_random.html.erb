@@ -1,0 +1,23 @@
+<div class="container">
+  <% j = 1 %>
+  <% i = 1 %>
+  <% while j<= 2%>
+  <div class="row">
+    <div class="col-sm-4">
+      <%= @articles[i].title %>
+      <%= link_to 'Read', article_path(@articles[i]) %>
+    </div>
+    <div class="col-sm-4">
+      <%= @articles[(i+1)].title %>
+      <%= link_to 'Read', article_path(@articles[i+1]) %>
+    </div>
+    <div class="col-sm-4">
+      <%= @articles[(i+2)].title %>
+      <%= link_to 'Read', article_path(@articles[i+2]) %>
+    </div>
+  </div>
+  <br><br>
+  <% j = j+1 %>
+  <% i = i+1  %>
+  <% end %>
+</div>
