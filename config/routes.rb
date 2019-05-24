@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-	root 'articles#get_recent'
+    mount Ckeditor::Engine => '/ckeditor'
+	root 'articles#main'
 	#resources :articles
 	resources :users
 	get 'users/:id/articles' => 'users#articles', :as => :users_articles
@@ -7,6 +8,7 @@ Rails.application.routes.draw do
 	post 'login', to: 'sessions#create'
 	delete 'logout', to: 'sessions#destroy'
 
+	
 	resources :articles do
     resources :comments
   end	

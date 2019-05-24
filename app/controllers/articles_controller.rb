@@ -1,4 +1,4 @@
-class ArticlesController < ApplicationController
+  class ArticlesController < ApplicationController
 	
 	def new
 		@article = Article.new
@@ -39,7 +39,7 @@ class ArticlesController < ApplicationController
     @commentable = find_commentable
     @comments = @commentable.comments.arrange(:order => :created_at)
     @comment = Comment.new
-    
+
 
     
 	end
@@ -60,14 +60,14 @@ class ArticlesController < ApplicationController
     	@articles = Article.all
     end
 
-    def get_random
-      @articles = Article.order("RANDOM()").limit(10)
+    def main
+      @articles_random = Article.offset(rand(7)).limit(6)
+      @articles_recent = Article.order(created_at: :desc).last(10)
       #@articles = Article.order("RAND()").first(6)
     end 
 
     def get_recent
-      @articles = Article.find(:all, :order => "id desc", :limit => 5)
-
+      
     end
    
 	private

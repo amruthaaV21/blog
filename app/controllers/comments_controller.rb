@@ -8,6 +8,9 @@ class CommentsController < ApplicationController
   end
   
   def create
+    if current_user.nil?
+      flash[:alert] = "please login to comment"
+    else
     @commentable = find_commentable
     @comment = @commentable.comments.build(comment_params)
     @comment.user_id = current_user.id
@@ -18,6 +21,7 @@ class CommentsController < ApplicationController
     else
       flash[:error] = "Error adding comment."
     end
+  end
   end
  
   private

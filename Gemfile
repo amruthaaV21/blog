@@ -6,7 +6,8 @@ git_source(:github) do |repo_name|
 end
 gem 'carrierwave', '~> 0.10.0'
 gem 'mini_magick', '~> 4.3'
-
+gem 'ckeditor', '4.3'
+gem 'tinymce-rails'
 gem "omniauth-google-oauth2", "~> 0.2.1"
 gem 'ancestry'
 gem 'bootstrap-sass', '~> 3.3.7'

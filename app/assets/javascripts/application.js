@@ -12,4 +12,6 @@
 //
 //= require rails-ujs
 //= require turbolinks
+//= require ckeditor/init
+//= require tinymce
 //= require_tree .
